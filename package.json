@@ -1,0 +1,19 @@
+{
+  "name": "UI-Calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@openui5/sap.m": "^1.60.0",
+    "@openui5/sap.ui.core": "^1.60.0",
+    "@openui5/sap.ui.layout": "^1.60.0",
+    "@openui5/themelib_sap_belize": "^1.60.0",
+    "@sap/approuter": "^6.8.2"
+    }, 
+   "scripts": {
+        "start": "node node_modules/@sap/approuter/approuter.js"
+    },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
