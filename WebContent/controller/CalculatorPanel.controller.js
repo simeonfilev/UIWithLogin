@@ -9,7 +9,7 @@ sap.ui.define([
 		calculate: function () {
 			var oModel = this.getView().getModel();
 			var sExpression = this.getView().getModel().getProperty("/calculator/expression");
-			var sEndpoint = window.location.href + "calculator/expressions";
+			var sEndpoint =window.location.origin + "/calculator/expressions";
 			var sUsername = oModel.getProperty("/username");
 			var params = {
 					expression: sExpression,
@@ -72,7 +72,7 @@ sap.ui.define([
 
 	function getResponse(id) {
 		return new Promise(resolve => {
-			var sEndpoint =  window.location.href +"calculator/expressions/status";
+			var sEndpoint =  window.location.origin +"/calculator/expressions/status";
 			var params = {
 					id: id
 			};
@@ -99,7 +99,7 @@ sap.ui.define([
 
 	function getAnswerByID(id) {
 		return new Promise(resolve => {
-			var sEndpoint =  window.location.href +"calculator/expressions";
+			var sEndpoint =  window.location.origin +"/calculator/expressions";
 			var params = {
 					id: id
 			};

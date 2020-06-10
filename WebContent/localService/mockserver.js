@@ -6,15 +6,34 @@ sap.ui.define([
 
 	return {
 		init: function () {
-			var oMockServer = new MockServer({});
+		
 			var oUriParameters = new UriParameters(window.location.href);
+			
+			var oMockServer = new MockServer({
+			
+			});
 			MockServer.config({
 				autoRespond: true,
 				autoRespondAfter: oUriParameters.get("serverDelay") || 500
 			});
-			oMockServer.start();
 			
+			var aRequests = oMockServer.getRequests();
+			aRequests.push({ 
+				method: "GET",
+				path: new RegExp("(.*)getuserinfo(.*)"),
+				response: function(oXhr) {
+					var oResponse = {
+						data: "test",
+						headers: {
+							"Content-Type": "text/plain"
+						},
+						status: "200"
+					};
+					oXhr.respond(oResponse.status, oResponse.headers, oResponse.data);
+				}
+			}); 
+			oMockServer.setRequests(aRequests);
+			oMockServer.start();
 		}
 	};
-
 });

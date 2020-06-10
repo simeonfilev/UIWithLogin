@@ -42,5 +42,14 @@
 				"uri": "css/style.css"
 			}]
 		}
-	}
+		},
+		"dataSources": {
+  		"invoiceRemote": {
+    "uri": "/UI_Calc/",
+    "type": "OData",
+    "settings": {
+      "odataVersion": "2.0"
+    }
+  }
+}
 }

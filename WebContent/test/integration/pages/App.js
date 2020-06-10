@@ -402,14 +402,13 @@ sap.ui.define([
                         timeout: 5,
                         check: function (oAnswerField) {
                             var sValue = oAnswerField.mProperties.value;
-                            if (sValue == expression) {
+                            if (sValue === expression) {
                                 return true;
                             }
                             return false;
                         },
                         success: function (oAnswerField) {
                             var sValueToCheck = oAnswerField.mProperties.value;
-                            console.log(sValueToCheck);
                             Opa5.assert.strictEqual(sValueToCheck, expression, "Expression entered correctly");
                         },
                         errorMessage: "didn't calculate correctly"
