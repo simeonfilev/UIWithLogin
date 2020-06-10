@@ -1,5 +1,5 @@
 function updateTableHistory(oModel){
-    		var sURL =  window.location.href +"calculator/expressions/all";
+    		var sURL =  window.location.origin +"/calculator/expressions/all";
     		var sUsername = oModel.getProperty("/username");
     		var params = {
 					username: sUsername

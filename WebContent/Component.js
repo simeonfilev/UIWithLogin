@@ -20,13 +20,8 @@ sap.ui.define([
 				},
 			};
 			var oModel = new JSONModel(oData, true);
+			updateUsername(oModel);
 			this.setModel(oModel);
-			
-			async function run() {
-				await updateUsername(oModel);
-				updateTableHistory(oModel);
-			}
-			run();
 		}
 		
 	})

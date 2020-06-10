@@ -48,6 +48,7 @@ sap.ui.define([
 				name: "sap.ui.acad.calculator"
 			}
 		});
+		
 		When.onTheAppPage.iPressTheTwoIdButton();
 		When.onTheAppPage.iPressTheMultiplyIdButton();
 		When.onTheAppPage.iPressTheFourIdButton();
