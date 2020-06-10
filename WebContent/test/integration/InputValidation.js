@@ -9,6 +9,26 @@ sap.ui.define([
 
 	QUnit.module("Input Validation");
 
+	opaTest("Is calculating expression correctly and seeing the new expression in history", function (Given, When, Then) {
+		mockserver.init();
+
+		Given.iStartMyUIComponent({
+			componentConfig: {
+				name: "sap.ui.acad.calculator"
+			}
+		});
+		
+		When.onTheAppPage.iPressTheTwoIdButton();
+		When.onTheAppPage.iPressTheMultiplyIdButton();
+		When.onTheAppPage.iPressTheFourIdButton();
+		When.onTheAppPage.iPressCalculateButton();
+		Then.onTheAppPage.iShouldFindAnswerField("8");
+		Then.onTheAppPage.iShouldFindTheNewExpressionInHistory("2*4",8);
+	
+		Then.iTeardownMyApp();
+		
+	});
+	
 	opaTest("All Elements are displaying correctly", function (Given, When, Then) {
 		mockserver.init();
 
@@ -40,24 +60,7 @@ sap.ui.define([
 		Then.iTeardownMyApp();
 	});
 
-	opaTest("Is calculating expression correctly and seeing the new expression in history", function (Given, When, Then) {
-		mockserver.init();
-
-		Given.iStartMyUIComponent({
-			componentConfig: {
-				name: "sap.ui.acad.calculator"
-			}
-		});
-		
-		When.onTheAppPage.iPressTheTwoIdButton();
-		When.onTheAppPage.iPressTheMultiplyIdButton();
-		When.onTheAppPage.iPressTheFourIdButton();
-		When.onTheAppPage.iPressCalculateButton();
-		Then.onTheAppPage.iShouldFindAnswerField("8");
-		Then.onTheAppPage.iShouldFindTheNewExpressionInHistory("2*4",8);
-
-		Then.iTeardownMyApp();
-	});
+	
 
 	opaTest("Is adding value to input on button press", function (Given, When, Then) {
 		mockserver.init();
